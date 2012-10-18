@@ -1,0 +1,1 @@
+GIT URL https://github.com/Evellex/CollectathonAIEC.git
