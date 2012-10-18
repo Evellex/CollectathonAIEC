@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerMovementScript : MonoBehaviour {
 	int forwardSpeed = 10;
 	int strafeSpeed = 10;
+	int rotateSpeed = 10;
+	
 	// Use this for initialization
 	void Start () {
 
@@ -14,5 +16,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		
 		rigidbody.AddForce(-Input.GetAxis("Horizontal") * transform.forward * Time.deltaTime * forwardSpeed, ForceMode.Impulse);
 		rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.Impulse);
+		
+		transform.Rotate(transform.up, Input.GetAxis("Mouse X") * rotateSpeed);
 	}
 }
