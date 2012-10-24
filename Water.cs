@@ -4,6 +4,7 @@ using System.Collections;
 public class Water : MonoBehaviour {
 	
 	public bool playerAlive = true;
+	public GameObject Player;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class Water : MonoBehaviour {
 		if (collision.gameObject.tag == "Player")
 		{
 			playerAlive = false;
+			Destroy(Player);
 			Debug.Log(1);
 		}
 	}
