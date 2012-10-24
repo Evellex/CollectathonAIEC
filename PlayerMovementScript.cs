@@ -27,7 +27,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		}
 		else
 		{
-			rigidbody.drag = 2.2f;
+			rigidbody.drag = 0;
 		}
 		Debug.Log (rigidbody.velocity.magnitude);
 		

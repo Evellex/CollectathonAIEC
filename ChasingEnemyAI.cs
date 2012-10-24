@@ -26,7 +26,7 @@ public class ChasingEnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if ((storeFirstPosition - player.transform.position).magnitude < 5)
+		if (((storeFirstPosition - player.transform.position).magnitude) < 5)
 		{
 			Debug.Log((storeFirstPosition - player.transform.position).magnitude);
 		}
