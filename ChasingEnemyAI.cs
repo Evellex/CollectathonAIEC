@@ -5,8 +5,9 @@ public class ChasingEnemyAI : MonoBehaviour {
 	
 	float timer;
 	float walkTimeLength = 1;
-	float walkSpeed = 10;
-	public float patrolRadius = 30;
+	float walkSpeed = 5;
+	public float patrolRadius;
+	public float chaseRadius;
 	public Vector3 randDest = new Vector3();
 	public Vector3 storeFirstPosition = new Vector3();
 	
@@ -25,10 +26,13 @@ public class ChasingEnemyAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log((transform.position - player.transform.position).magnitude);
 		
-		if (((storeFirstPosition - player.transform.position).magnitude) < 5)
+		if (((transform.position - player.transform.position).magnitude) < chaseRadius)
 		{
-			Debug.Log((storeFirstPosition - player.transform.position).magnitude);
+			transform.position = Vector3.MoveTowards(transform.position,player.transform.position,walkSpeed*Time.deltaTime);
+			transform.LookAt(player.transform);
+			Debug.DrawRay(transform.position,storeFirstPosition,Color.blue);
 		}
 		else
 		{
@@ -45,8 +49,5 @@ public class ChasingEnemyAI : MonoBehaviour {
 		}
 
 	}
-	/*void OnTriggerExit(Collider collider)
-	{
-		transform.Rotate(0,180,0);
-	}*/
+
 }
