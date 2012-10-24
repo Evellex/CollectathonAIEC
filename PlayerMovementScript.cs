@@ -16,20 +16,22 @@ public class PlayerMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		rigidbody.AddForce(-Input.GetAxis("Horizontal") * transform.forward * Time.deltaTime * forwardSpeed, ForceMode.Impulse);
-		rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.Impulse);
-		
-		transform.Rotate(transform.up, Input.GetAxis("Mouse X") * rotateSpeed);
-		
-		if(rigidbody.velocity.magnitude> maxVelocity)
+		if (Water.playerAlive == true)
 		{
-			rigidbody.drag = customDrag;
+			rigidbody.AddForce(-Input.GetAxis("Horizontal") * transform.forward * Time.deltaTime * forwardSpeed, ForceMode.Impulse);
+			rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.Impulse);
+			
+			transform.Rotate(transform.up, Input.GetAxis("Mouse X") * rotateSpeed);
+			
+			if(rigidbody.velocity.magnitude> maxVelocity)
+			{
+				rigidbody.drag = customDrag;
+			}
+			else
+			{
+				rigidbody.drag = 0;
+			}
+			Debug.Log (rigidbody.velocity.magnitude);
 		}
-		else
-		{
-			rigidbody.drag = 0;
-		}
-		Debug.Log (rigidbody.velocity.magnitude);
-		
 	}
 }
