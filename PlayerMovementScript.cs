@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerMovementScript : MonoBehaviour {
-	int forwardSpeed = 10;
-	int strafeSpeed = 10;
+	int forwardSpeed = 100;
+	int strafeSpeed = 100;
 	int rotateSpeed = 10;
+	public float maxVelocity;
+	public float customDrag;
 	
 	// Use this for initialization
 	void Start () {
@@ -18,5 +20,16 @@ public class PlayerMovementScript : MonoBehaviour {
 		rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.Impulse);
 		
 		transform.Rotate(transform.up, Input.GetAxis("Mouse X") * rotateSpeed);
+		
+		if(rigidbody.velocity.magnitude> maxVelocity)
+		{
+			rigidbody.drag = customDrag;
+		}
+		else
+		{
+			rigidbody.drag = 2.2f;
+		}
+		Debug.Log (rigidbody.velocity.magnitude);
+		
 	}
 }

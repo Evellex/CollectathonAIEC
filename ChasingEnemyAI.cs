@@ -26,15 +26,22 @@ public class ChasingEnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (transform.position != randDest)
+		if ((storeFirstPosition - player.transform.position).magnitude < 5)
 		{
-			transform.position = Vector3.MoveTowards(transform.position,randDest,walkSpeed*Time.deltaTime);
+			Debug.Log((storeFirstPosition - player.transform.position).magnitude);
 		}
 		else
 		{
-			randDest = (Random.insideUnitSphere * 30)+storeFirstPosition;
-			randDest.y = storeFirstPosition.y;
-			transform.LookAt(randDest);
+			if (transform.position != randDest)
+			{
+				transform.position = Vector3.MoveTowards(transform.position,randDest,walkSpeed*Time.deltaTime);
+			}
+			else
+			{
+				randDest = (Random.insideUnitSphere * 30)+storeFirstPosition;
+				randDest.y = storeFirstPosition.y;
+				transform.LookAt(randDest);
+			}
 		}
 
 	}
