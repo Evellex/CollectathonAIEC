@@ -5,8 +5,8 @@ public class playerdeath : MonoBehaviour {
 	
 	public Vector3 startPosition;
 	static public bool playerAlive = true;
-	public float respawnTime;
-
+	public float respawnTimer;
+	static public float timeToRespawn;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,12 +18,12 @@ public class playerdeath : MonoBehaviour {
 	void Update () {
 		if (playerAlive == false)
 		{
-			respawnTime += Time.deltaTime;
-			if (respawnTime > 2)
+			respawnTimer += Time.deltaTime;
+			if (respawnTimer > timeToRespawn)
 			{
 				gameObject.transform.position = startPosition;
 				playerAlive = true;
-				respawnTime = 0;
+				respawnTimer = 0;
 			}
 		}
 		

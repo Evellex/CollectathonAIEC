@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CollectingManager : MonoBehaviour {
 	
-	int mushroomsCollected;
+	public static int mushroomsCollected;
 	public static int mushroomsToCollect;
 	
 	// Use this for initialization

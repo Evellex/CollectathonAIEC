@@ -20,6 +20,7 @@ public class Water : MonoBehaviour {
 		if (collision.gameObject.tag == "Player")
 		{
 			playerdeath.playerAlive = false;
+			playerdeath.timeToRespawn = 2;
 		}
 	}
 }
