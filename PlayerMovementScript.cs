@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerMovementScript : MonoBehaviour {
-	int forwardSpeed = 1000;
-	int strafeSpeed = 1000;
+	int forwardSpeed = 50;
+	int strafeSpeed = 50;
 	int rotateSpeed = 10;
 	public float maxVelocity;
 	public float customDrag;
@@ -16,14 +16,20 @@ public class PlayerMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		rigidbody.AddForce(-Input.GetAxis("Horizontal") * transform.forward * Time.deltaTime * forwardSpeed, ForceMode.Impulse);
-		rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.Impulse);
+		if (rigidbody.velocity.magnitude < 25){
+		rigidbody.AddForce(-Input.GetAxis("Horizontal") * transform.forward * Time.deltaTime * forwardSpeed, ForceMode.VelocityChange);
+		rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.VelocityChange);
+		}
 		
+		transform.Rotate(transform.up, Input.GetAxis("Mouse X") * rotateSpeed);
+		
+
+		/*
 		if (Input.GetKey(KeyCode.None))
 		{
-			rigidbody.mass = 10;
+			rigidbody.mass = 1;
 		}
-		transform.Rotate(transform.up, Input.GetAxis("Mouse X") * rotateSpeed);
+		
 		
 		if(rigidbody.velocity.magnitude > maxVelocity)
 		{
@@ -32,8 +38,8 @@ public class PlayerMovementScript : MonoBehaviour {
 		else
 		{
 			rigidbody.drag = 0;
-			rigidbody.mass = 100;
-		}
+			rigidbody.mass = 1;
+		}*/
 		
 	}
 }

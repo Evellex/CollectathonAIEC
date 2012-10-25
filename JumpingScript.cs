@@ -18,7 +18,7 @@ public class JumpingScript : MonoBehaviour {
 		
 		if(Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftControl) && canSJ == true)
 		{
-			rigidbody.AddForce(transform.up*1000*Time.deltaTime, ForceMode.Impulse);
+			rigidbody.AddForce(transform.up*10000*Time.deltaTime, ForceMode.Impulse);
 			canDJ = false;
 			canSJ = false;
 		}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Water : MonoBehaviour {
 	
-	public GameObject Player;
+	//public GameObject Player;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +17,7 @@ public class Water : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision collision)
 	{
+		Debug.Log("entering water collision");
 		if (collision.gameObject.tag == "Player")
 		{
 			playerdeath.playerAlive = false;
