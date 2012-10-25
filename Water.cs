@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Water : MonoBehaviour {
 	
-	static public bool playerAlive = true;
 	public GameObject Player;
 
 	// Use this for initialization
@@ -20,7 +19,7 @@ public class Water : MonoBehaviour {
 	{
 		if (collision.gameObject.tag == "Player")
 		{
-			playerAlive = false;
+			playerdeath.playerAlive = false;
 		}
 	}
 }

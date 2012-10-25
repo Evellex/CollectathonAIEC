@@ -16,7 +16,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (Water.playerAlive == true)
+		if (playerdeath.playerAlive == true)
 		{
 			rigidbody.AddForce(-Input.GetAxis("Horizontal") * transform.forward * Time.deltaTime * forwardSpeed, ForceMode.Impulse);
 			rigidbody.AddForce(Input.GetAxis("Vertical") * transform.right * Time.deltaTime * strafeSpeed, ForceMode.Impulse);
