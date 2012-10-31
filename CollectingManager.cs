@@ -21,18 +21,21 @@ public class CollectingManager : MonoBehaviour {
 	
 	void OnTriggerEnter (Collider collider)
 	{
+		if(collider.audio == true)
+			collider.audio.Play();
+		
 		if (collider.tag == "mushroom")
 		{
 		mushroomsCollected++;
-		
-			Destroy(collider.gameObject);
-			Debug.Log("Deleting mushroom");
-			audio.Play();
+		collider.gameObject.GetComponentInChildren<SphereCollider>().enabled = false;
 		}
 		if (collider.tag =="Sprocket")
 		{
-			Destroy(collider.gameObject);
 			sprocketsCollected++;
+			collider.gameObject.GetComponentInChildren<BoxCollider>().enabled = false;
 		}
+		collider.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+		Destroy(collider.gameObject,1.0f);
 	}
 }
