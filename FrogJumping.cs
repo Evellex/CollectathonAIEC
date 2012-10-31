@@ -17,14 +17,13 @@ public class FrogJumping : MonoBehaviour
 	void Update ()
 	{
 		timeWated += Time.deltaTime;
+		Debug.Log(timeWated);
+		Debug.Log(random);
 		if (timeWated > random)
 		{
-			jumpTime += Time.deltaTime;
-			if (jumpTime < 2)
-			{
-				gameObject.rigidbody.AddForce(0, 5, 0);
-			}
+		 	gameObject.rigidbody.AddForce(transform.up*10, ForceMode.Impulse);
 			timeWated = 0; 
+			random = Random.Range(10, 40);
 		}
 	}
 }
