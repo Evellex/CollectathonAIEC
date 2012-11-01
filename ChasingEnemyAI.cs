@@ -26,7 +26,7 @@ public class ChasingEnemyAI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log((transform.position - player.transform.position).magnitude);
+		//Debug.Log((transform.position - player.transform.position).magnitude);
 
 		if (((transform.position - player.transform.position).magnitude) < chaseRadius)
 		{
@@ -55,7 +55,6 @@ public class ChasingEnemyAI : MonoBehaviour {
 		if (collision.gameObject.tag =="Player")
 		{
 			playerdeath.playerAlive = false;
-			//playerdeath.timeToRespawn = 0.2f;
 		}
 	}
 

@@ -5,9 +5,10 @@ public class TurretScript : MonoBehaviour {
 	
 	public GameObject Player;
 	public GameObject Bullet;
-	float speedOfBullet = 25;
+	float speedOfBullet = 50;
 	float shotCoolDown = 2;
 	float Timer = 0;
+	public int range;
 	
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,7 @@ public class TurretScript : MonoBehaviour {
 		
 		Timer += Time.deltaTime;
 		
-		if(Timer > shotCoolDown)
+		if(Timer > shotCoolDown&&((transform.position - Player.transform.position).magnitude)<range)
 		{
 			Timer = 0;
 			GameObject TempGameObject = Instantiate(Bullet,transform.position + Vector3.up,transform.rotation) as GameObject;
