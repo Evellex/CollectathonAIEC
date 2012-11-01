@@ -16,7 +16,7 @@ public class playerdeath : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(playerAlive);
+		//Debug.Log(playerAlive);
 		if (playerAlive == false)
 		{
 			respawnTimer += Time.deltaTime;

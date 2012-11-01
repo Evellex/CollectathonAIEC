@@ -17,8 +17,8 @@ public class FrogJumping : MonoBehaviour
 	void Update ()
 	{
 		timeWated += Time.deltaTime;
-		Debug.Log(timeWated);
-		Debug.Log(random);
+		//Debug.Log(timeWated);
+		//Debug.Log(random);
 		if (timeWated > random)
 		{
 		 	gameObject.rigidbody.AddForce(transform.up*10, ForceMode.Impulse);
