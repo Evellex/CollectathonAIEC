@@ -7,6 +7,8 @@ public class playerdeath : MonoBehaviour {
 	static public bool playerAlive = true;
 	public float respawnTimer;
 	static public float timeToRespawn;
+	public GameObject Explosion;
+	bool hasExploded = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,12 +21,24 @@ public class playerdeath : MonoBehaviour {
 		//Debug.Log(playerAlive);
 		if (playerAlive == false)
 		{
+			gameObject.GetComponent<CapsuleCollider>().enabled = false;
+			rigidbody.isKinematic = true;
+			gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+			if (hasExploded == false)
+			{
+				GameObject TempGameObject = Instantiate(Explosion,transform.position,transform.rotation) as GameObject;
+				hasExploded = true;
+			}
+			
 			respawnTimer += Time.deltaTime;
 			if (respawnTimer > timeToRespawn)
 			{
 				gameObject.transform.position = startPosition;
 				playerAlive = true;
 				respawnTimer = 0;
+				hasExploded = false;
+				gameObject.GetComponent<CapsuleCollider>().enabled = true;
+				rigidbody.isKinematic = false;
 			}
 		}
 		

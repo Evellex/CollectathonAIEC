@@ -24,6 +24,8 @@ public class FrogJumping : MonoBehaviour
 		 	gameObject.rigidbody.AddForce(transform.up*10, ForceMode.Impulse);
 			timeWated = 0; 
 			random = Random.Range(10, 40);
+			
+			audio.Play();
 		}
 	}
 }

@@ -5,7 +5,7 @@ public class TurretScript : MonoBehaviour {
 	
 	public GameObject Player;
 	public GameObject Bullet;
-	float speedOfBullet = 50;
+	float speedOfBullet = 100;
 	float shotCoolDown = 2;
 	float Timer = 0;
 	public int range;

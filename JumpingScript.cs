@@ -16,11 +16,14 @@ public class JumpingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if(Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftControl) && canSJ == true)
+		if (rigidbody.velocity.magnitude < 10)
 		{
-			rigidbody.AddForce(transform.up*1200*Time.deltaTime, ForceMode.Impulse);
-			canDJ = false;
-			canSJ = false;
+			if(Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftControl) && canSJ == true)
+			{
+				rigidbody.AddForce(transform.up*1200*Time.deltaTime, ForceMode.Impulse);
+				canDJ = false;
+				canSJ = false;
+			}
 		}
 		
 		if(Input.GetKeyDown(KeyCode.Space) && canDJ == true)
