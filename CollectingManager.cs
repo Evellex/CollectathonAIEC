@@ -6,6 +6,7 @@ public class CollectingManager : MonoBehaviour {
 	public static int mushroomsCollected;
 	public static int mushroomsToCollect;
 	public static int numMushrooms;
+	public static int countingFrogs;
 	
 	public FrogUIControl frogUI;
 	
@@ -21,7 +22,7 @@ public class CollectingManager : MonoBehaviour {
 	void Update () {
 		
 	}
-	
+	//Mushrooms and Sprockets are triggers, collecting and playing sound
 	void OnTriggerEnter (Collider collider)
 	{
 		if(collider.audio == true)
@@ -42,6 +43,7 @@ public class CollectingManager : MonoBehaviour {
 		Destroy(collider.gameObject,1.0f);
 	}
 	
+	//seperate code for frogs, frongs have colliders
 	void OnCollisionEnter (Collision collision)
 	{
 		Debug.Log("entered collision");
@@ -57,6 +59,7 @@ public class CollectingManager : MonoBehaviour {
 			collision.gameObject.GetComponentInChildren<BoxCollider>().enabled= false;
 			collision.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 			Destroy(collision.gameObject,1.0f);
+			countingFrogs++;
 		}
 		else if (collision.gameObject.tag =="GreenFrog")
 		{
@@ -65,6 +68,7 @@ public class CollectingManager : MonoBehaviour {
 			collision.gameObject.GetComponentInChildren<BoxCollider>().enabled= false;
 			collision.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 			Destroy(collision.gameObject,1.0f);
+			countingFrogs++;
 		}
 		else if (collision.gameObject.tag =="YellowFrog")
 		{
@@ -73,6 +77,7 @@ public class CollectingManager : MonoBehaviour {
 			collision.gameObject.GetComponentInChildren<BoxCollider>().enabled= false;
 			collision.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 			Destroy(collision.gameObject,1.0f);
+			countingFrogs++;
 			
 		}
 		else if (collision.gameObject.tag =="RedFrog")
@@ -82,6 +87,7 @@ public class CollectingManager : MonoBehaviour {
 			collision.gameObject.GetComponentInChildren<BoxCollider>().enabled= false;
 			collision.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 			Destroy(collision.gameObject,1.0f);
+			countingFrogs++;
 		}
 		else if (collision.gameObject.tag =="PinkFrog")
 		{
@@ -90,6 +96,7 @@ public class CollectingManager : MonoBehaviour {
 			collision.gameObject.GetComponentInChildren<BoxCollider>().enabled= false;
 			collision.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 			Destroy(collision.gameObject,1.0f);
+			countingFrogs++;
 		}
 	}
 }

@@ -7,7 +7,7 @@ public class CountingMushroom : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		 //counting mushrooms on level
 		CollectingManager.numMushrooms ++;
 	
 	}

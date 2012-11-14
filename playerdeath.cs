@@ -3,7 +3,7 @@ using System.Collections;
 
 public class playerdeath : MonoBehaviour {
 	
-	public Vector3 startPosition;
+	public static Vector3 startPosition;
 	static public bool playerAlive = true;
 	public float respawnTimer;
 	static public float timeToRespawn;
@@ -11,8 +11,6 @@ public class playerdeath : MonoBehaviour {
 	bool hasExploded = false;
 	// Use this for initialization
 	void Start () {
-		
-		startPosition = gameObject.transform.position;
 	
 	}
 	
@@ -21,8 +19,8 @@ public class playerdeath : MonoBehaviour {
 		//Debug.Log(playerAlive);
 		if (playerAlive == false)
 		{
-			gameObject.GetComponent<CapsuleCollider>().enabled = false;
-			rigidbody.isKinematic = true;
+			gameObject.GetComponent<CapsuleCollider>().enabled = false; //makes opject non collideable on death
+			rigidbody.isKinematic = true; //Freezes position on death - will fall through world without
 			gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 			if (hasExploded == false)
 			{
@@ -40,7 +38,6 @@ public class playerdeath : MonoBehaviour {
 				gameObject.GetComponent<CapsuleCollider>().enabled = true;
 				rigidbody.isKinematic = false;
 			}
-		}
-		
+		}		
 	}
 }

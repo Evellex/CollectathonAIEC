@@ -10,6 +10,15 @@ public class SprocketCountUpdate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	GetComponent<TextMesh>().text =(" = " +CollectingManager.sprocketsCollected);
+		//displays the number of collected sprockts, changes to done when all are collected
+		if (CollectingManager.sprocketsCollected == CollectingManager.sprocketsToCollect)
+		{
+			GetComponent<TextMesh>().text =(" Done!");
+		}
+		else
+		{
+			GetComponent<TextMesh>().text =(" = " +CollectingManager.sprocketsCollected);
+		}
+	
 	}
 }

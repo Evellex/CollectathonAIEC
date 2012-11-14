@@ -10,6 +10,16 @@ public class ShroomCountUpdate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	GetComponent<TextMesh>().text =(" = " +CollectingManager.mushroomsCollected);
+		
+		
+		//displaying the number of collected mushrooms, changes to done when all collected
+		if(CollectingManager.mushroomsCollected == CollectingManager.numMushrooms)
+		{
+			GetComponent<TextMesh>().text =("DONE!");
+		}
+		else
+		{
+			GetComponent<TextMesh>().text =(" = " +CollectingManager.mushroomsCollected);
+		}
 	}
 }
